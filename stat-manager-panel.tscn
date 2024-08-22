@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://nx8socbqfu4m"]
+
+[ext_resource type="Script" path="res://addons/stat-manager/stat_manager_panel.gd" id="1_ibvwf"]
+
+[node name="Stats" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ibvwf")
+
+[node name="top_menu" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Tree" type="Tree" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+column_titles_visible = true
+hide_root = true
+select_mode = 1
+scroll_horizontal_enabled = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_clicked" from="Tree" to="." method="_on_tree_button_clicked"]
+[connection signal="item_edited" from="Tree" to="." method="_on_tree_item_edited"]
